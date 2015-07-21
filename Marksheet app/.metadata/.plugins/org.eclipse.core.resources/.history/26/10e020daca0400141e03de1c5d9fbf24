@@ -1,0 +1,25 @@
+package com.example.catapp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class Project extends Activity {
+	
+Button cancel;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.profile);
+		
+cancel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.fragment_main);
+				
+			}
+		});
+	}
+}

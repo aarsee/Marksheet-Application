@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib"
+                    xmlns:m="clr-namespace:System.Windows.Media;assembly=PresentationCore"
+                    xmlns:cls="clr-namespace:TestFormula_StAnalysis.Classes"
+                    xmlns:local="clr-namespace:TestFormula_StAnalysis" 
+                    >
+             
+
+    <!--<_________________>-->
+    <!--<Keys Color Values>-->
+
+    <x:Array x:Key="StandardsCollection" Type="{x:Type s:String}">
+        <s:String>VI</s:String>
+        <s:String>VII</s:String>
+        <s:String>VIII</s:String>
+        <s:String>IX</s:String>
+        <s:String>X</s:String>
+        <s:String>XI</s:String>
+        <s:String>XII</s:String>
+    </x:Array>
+
+    <ObjectDataProvider x:Key="SubjectsCollection" MethodName="GetValues" ObjectType="{x:Type s:Enum}">
+        <ObjectDataProvider.MethodParameters>
+            <x:Type TypeName="cls:eSubject"/>
+        </ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+
+    <x:Array x:Key="GenderCollection" Type="{x:Type s:String}">
+        <s:String>Male</s:String>
+        <s:String>Female</s:String>
+    </x:Array>
+
+    <x:Array x:Key="ChartsCollection" Type="{x:Type s:String}">
+        <s:String>Bar</s:String>
+        <s:String>Pie</s:String>
+        <s:String>Area</s:String>
+        <s:String>Column</s:String>
+        <s:String>Line</s:String>
+    </x:Array>
+
+    <x:Array x:Key="ThemesCollection" Type="{x:Type s:String}">
+        <s:String>Light</s:String>
+        <s:String>Dark</s:String>
+        <s:String>Sky</s:String>
+    </x:Array>
+             
+    <SolidColorBrush  x:Key="Blue0" Color="#E6FFFF"/>
+    <SolidColorBrush  x:Key="Blue1" Color="#CCFFFF"/>
+    <SolidColorBrush  x:Key="Blue2" Color="#CCE6E6"/>
+    <SolidColorBrush  x:Key="Blue3" Color="#B2FFFF"/>
+    <SolidColorBrush  x:Key="Blue4" Color="#80CCCC"/>
+</ResourceDictionary>

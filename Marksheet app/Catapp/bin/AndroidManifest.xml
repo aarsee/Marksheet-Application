@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.catapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.catapp.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".Profile"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.PROFILE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+                
+        <activity
+            android:name=".Test"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.TEST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q1"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q1" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q2"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q2" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q3"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q3" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q4"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q4" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q5"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q5" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q6"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q6" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q7"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q7" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q8"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q8" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q9"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q9" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q10"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q10" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q11"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q11" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q12"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q12" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q13"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q13" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name=".q14"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.catapp.Q14" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+        <activity android:name="com.facebook.LoginActivity"></activity>
+    </application>
+
+</manifest>

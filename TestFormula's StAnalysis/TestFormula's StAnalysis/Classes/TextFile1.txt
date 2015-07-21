@@ -1,0 +1,209 @@
+﻿Old code
+
+public static Profile ReadFile(string path) 
+        {
+            if (!File.Exists(path))
+            {
+                Console.WriteLine("File Not Found!!!");
+                throw new FileNotFoundException();
+            }
+            if (!IsCorrectFormat(path))
+            {
+                Console.WriteLine("Bad File Format");
+                throw new FileFormatException();
+            }
+            BinaryReader reader = new BinaryReader(new StreamReader(path).BaseStream);
+
+            double dVal = reader.ReadDouble();
+            FReadString(reader);
+            Profile profile = ReadFile_v1(reader);
+            profile.Version = dVal;
+            profile.FileName = path;
+            reader.Close();
+
+            GC.Collect();
+
+            return profile;
+        }
+
+        private static bool IsCorrectFormat(string Path)
+        {
+            BinaryReader reader=null;
+            try
+            {
+                reader = new BinaryReader(new StreamReader(Path).BaseStream);
+                double v=reader.ReadDouble();
+                string name = FReadString(reader);
+                if (name != "TestFormula's StAnalysis")
+                {
+                    reader.Close();
+                    return false;
+                }
+                reader.Close();
+            }
+            catch (Exception) {
+                reader.Close();
+                return false; 
+            }
+
+            return true;
+        }
+
+        private static Profile ReadFile_v1(BinaryReader reader)
+        {
+            Profile profile = new Profile();
+
+            int iVal,iVal2;
+            profile.Name = FReadString(reader);
+            profile.Gender = (GENDER)reader.ReadInt32(); Debug.WriteLine("(4)"+(int)profile.Gender);
+            profile.SchoolName = FReadString(reader);
+            profile.Address = FReadString(reader);
+
+            long lVal = reader.ReadInt64(); Debug.WriteLine("(8)" + lVal);
+            profile._lastAccessed = new DateTime(lVal);
+
+            iVal = reader.ReadInt32(); Debug.WriteLine("(4)" + iVal);
+            for (int i = 0; i < iVal; i++)
+            {
+                iVal2 = reader.ReadInt32();
+                Standard standard = new Standard(iVal2);
+
+                iVal2 = reader.ReadInt32();
+                for (int j = 0; j < iVal2; j++)
+                {
+                    int id=reader.ReadInt32();
+                    Subject subject= standard.Subjects[id];
+                    subject.Score=reader.ReadInt32();
+                    subject.Duration=reader.ReadInt32();
+                }
+                profile.AddStandard(standard);
+            }
+
+            //BitmapImage bmp = new BitmapImage();
+            //bmp.BeginInit();
+            //bmp.StreamSource = reader.BaseStream;
+            //bmp.EndInit();
+
+            return profile;
+        }
+
+        private static String FReadString(BinaryReader reader)
+        {
+            int iVal = reader.ReadInt32();
+            string s = new string(reader.ReadChars(iVal));
+            Debug.Print("("+iVal+")"+s);
+            return s;
+        }
+
+        private static void DiscardBytes(BinaryReader reader,int size)
+        {
+            byte[] buf = new byte[size];
+            //reader.ReadBytes(buf, 0, size);
+        }
+
+        public static void WriteFile(Profile profile,string Path)
+        {
+            BinaryWriter writer = new BinaryWriter(new StreamWriter(Path, false).BaseStream);
+
+            double dVal = profile.Version;
+            writer.Write(dVal);
+
+            WriteFile_v1(profile, writer);
+            writer.Flush();
+            writer.Close();
+
+            GC.Collect();
+        }
+
+        private static void WriteFile_v1(Profile profile, BinaryWriter writer)
+        {
+            FWriteString(writer,"TestFormula's StAnalysis");
+            FWriteString(writer, profile.Name);
+            writer.Write((int)profile.Gender); Debug.Print("(" + 4 + ")" + (int)profile.Gender);
+            FWriteString(writer, profile.SchoolName);
+            FWriteString(writer, profile.Address);
+            writer.Write(profile._lastAccessed.Ticks); Debug.Print("(" + 8 + ")" + profile._lastAccessed.Ticks);
+
+            ObservableCollection<Standard> standards = profile.Standards;
+            int iVal = standards.Count;
+            writer.Write(iVal); Debug.WriteLine("(4)" + iVal);
+            for (int i = 0; i < iVal; i++)
+            {
+                writer.Write(standards[i].Value);
+
+                ObservableCollection<Subject> subjects = standards[i].Subjects;
+                writer.Write(subjects.Count);
+                for (int j = 0; j < subjects.Count; j++)
+                {
+                    writer.Write((int)subjects[j].ID);
+                    writer.Write(subjects[j].Score);
+                    writer.Write(subjects[j].Duration);
+                }
+            }
+            //Debug.Print(profile.Image.UriSource.m);
+            //Application.GetContentStream( new Uri(profile.Image.UriSource.OriginalString,UriKind.Relative)).Stream.CopyTo(writer.BaseStream);
+        }
+
+        private static void FWriteString(BinaryWriter writer, string str)
+        {
+            writer.Write(str.Length); 
+            writer.Write(str.ToCharArray()); 
+            Debug.WriteLine("("+str.Length+")"+str);
+            writer.Flush();
+        }
+
+
+	//
+	//			STANDARD.CS
+	//
+
+		//public void RemoveSubject(SUBJECT SubjectID)
+        //{
+        //    Subject subject = GetSubject(SubjectID);
+        //    if (subject != null)
+        //    {
+        //        Subjects.Remove(subject);
+        //    }
+        //}
+
+        //public int GetSubjectsCount()
+        //{
+        //    return Subjects.Count;
+        //}
+
+        //public Subject GetSubject(SUBJECT SubjectID)
+        //{
+        //    foreach(Subject subject in Subjects){
+        //        if (subject.ID==SubjectID)
+        //        {
+        //            return subject;
+        //        }
+        //    }
+        //    return null;
+        //}
+
+        //public void SetScore(SUBJECT SubjectID,int Score)
+        //{
+        //    Subject subject = GetSubject(SubjectID);
+        //    TotalScore += Score - subject.Score;
+        //    subject.Score = Score;
+        //    UpdatePerformance();
+        //}
+
+        //public void SetDuration(SUBJECT SubjectID, int Duration)
+        //{
+        //    Subject subject = GetSubject(SubjectID);
+        //    TotalDuration+= Duration - subject.Duration;
+        //    subject.Duration = Duration;
+        //    UpdatePerformance();
+        //}
+
+        //public int GetScore(SUBJECT SubjectID)
+        //{
+        //    return GetSubject(SubjectID).Score;
+        //}
+
+        //private void UpdatePerformance()
+        //{
+        //    NetPerformance = "";
+        //}

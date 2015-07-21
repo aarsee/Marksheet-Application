@@ -1,0 +1,286 @@
+package com.example.catapp;
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.os.Build;
+
+public class MainActivity extends ActionBarActivity {
+//LinearLayout a,b,c,d,e,f;
+	
+	Button profile,marks,compare,test,about,like,cancel,start;
+	Button q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_main);
+        
+        profile = (Button)findViewById(R.id.profile);
+        marks = (Button)findViewById(R.id.marks);
+        compare = (Button)findViewById(R.id.compare);
+        test = (Button)findViewById(R.id.test);
+        about = (Button)findViewById(R.id.about);
+        like = (Button)findViewById(R.id.like);
+        cancel = (Button)findViewById(R.id.cancel);
+        start = (Button)findViewById(R.id.start);
+        q1 = (Button)findViewById(R.id.q1);
+        q2 = (Button)findViewById(R.id.q2);
+        q3 = (Button)findViewById(R.id.q3);
+        q4 = (Button)findViewById(R.id.q4);
+        q5 = (Button)findViewById(R.id.q5);
+        q6 = (Button)findViewById(R.id.q6);
+        q7 = (Button)findViewById(R.id.q7);
+        q8 = (Button)findViewById(R.id.q8);
+        q9 = (Button)findViewById(R.id.q9);
+        q10 = (Button)findViewById(R.id.q10);
+        q11 = (Button)findViewById(R.id.q11);
+        q12 = (Button)findViewById(R.id.q12);
+        q13 = (Button)findViewById(R.id.q13);
+        q14 = (Button)findViewById(R.id.q14);
+        q15 = (Button)findViewById(R.id.q15);
+        profile.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.profile);
+				
+			}
+		});
+        
+        marks.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.marks);
+				
+			}
+		});
+        
+        compare.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.compare);
+				
+			}
+		});
+        
+        test.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.test);
+				
+			}
+		});
+        
+        about.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.aboutus);
+				
+			}
+		});
+        
+        like.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.likeus);
+				
+			}
+		});
+        
+        cancel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.fragment_main);
+				
+			}
+		});
+        
+        start.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.q1);
+				
+			}
+		});
+        
+        q1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.q2);
+				
+			}
+		});
+        
+        q2.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.q3);
+				
+			}
+		});
+
+        q3.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q4);
+		
+			}
+        });
+
+        q4.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q5);
+		
+	}
+});
+
+q5.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q6);
+		
+	}
+});
+
+q6.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q7);
+		
+	}
+});
+
+q7.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q8);
+		
+	}
+});
+
+q8.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q9);
+		
+	}
+});
+
+q9.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q10);
+		
+	}
+});
+
+q10.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q11);
+		
+	}
+});
+
+q11.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q12);
+		
+	}
+});
+
+q12.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q13);
+		
+	}
+});
+
+q13.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q14);
+		
+	}
+});
+
+q14.setOnClickListener(new View.OnClickListener() {
+	
+	@Override
+	public void onClick(View arg0) {
+		setContentView(R.layout.q15);
+		
+	}
+});
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            return rootView;
+        }
+    }
+
+}

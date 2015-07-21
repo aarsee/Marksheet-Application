@@ -1,0 +1,105 @@
+﻿<Window x:Class="TestFormula_StAnalysis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cmd="clr-namespace:TestFormula_StAnalysis.Classes"
+       Title="TestFormula's Marksheet" WindowStartupLocation="CenterOwner"
+        Height="550" Width="725"  Icon="combo-64.png"
+        PreviewKeyDown="Window_PreviewKeyDown" Closing="Window_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+        <CommandBinding Command="Open" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+
+        <CommandBinding Command="Save" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+        <CommandBinding Command="SaveAs" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+
+        <CommandBinding Command="Help" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+        <CommandBinding Command="Close" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+        <CommandBinding Command="cmd:CustomCommands.About" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+
+        <CommandBinding Command="cmd:CustomCommands.SaveRequired" Executed="Command_Executed" CanExecute="CommandCanExecute_Handler"/>
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Menu>
+                <MenuItem Header="_File">
+                    <MenuItem Header="New Profile..." x:Name="mnuNewProfile" InputGestureText="Ctrl+N" Command="New"/>
+                    <MenuItem Header="Open..." x:Name="mnuOpen" InputGestureText="Ctrl+O" Command="Open" />
+                    <Separator/>
+                    <MenuItem Header="Save" x:Name="mnuSave" InputGestureText="Ctrl+S" Command="Save" Click="btnMenuItem_Click"/>
+                    <MenuItem Header="Save As..." x:Name="mnuSaveAs" Command="SaveAs" Click="btnMenuItem_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Recent Files" x:Name="mnuRecentList">
+                        <Separator/>
+                        <MenuItem Header="Clear" x:Name="mnuRecentClear" Click="btnMenuItem_Click"/>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="Close" Command="Close" InputGestureText="Ctrl+W" CommandTarget="{Binding SelectedItem, ElementName=tabControl}"/>
+                    <Separator/>
+                    <MenuItem Header="Exit" x:Name="mnuExit" InputGestureText="Alt+F4" Click="btnMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Undo" x:Name="mnuUndo" InputGestureText="Ctrl+Z" Command="Undo" Click="btnMenuItem_Click"/>
+                    <MenuItem Header="_Redo" x:Name="mnuRedo" InputGestureText="Ctrl+Y" Command="Redo" Click="btnMenuItem_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Cu_t" x:Name="mnuCut" InputGestureText="Ctrl+X" Command="Cut" Click="btnMenuItem_Click"/>
+                    <MenuItem Header="_Copy" x:Name="mnuCopy" InputGestureText="Ctrl+C" Command="Copy" Click="btnMenuItem_Click"/>
+                    <MenuItem Header="_Paste" x:Name="mnuPaste" InputGestureText="Ctrl+V" Command="Paste"  Click="btnMenuItem_Click"/>
+                    <MenuItem Header="_Delete" x:Name="mnuDelete" InputGestureText="Del" Command="Delete" Click="btnMenuItem_Click"/>
+                    <MenuItem Header="_Select All" x:Name="mnuSelectAll" InputGestureText="Ctrl+A" Command="SelectAll" Click="btnMenuItem_Click"/>
+                    <Separator Visibility="Collapsed"/>
+                    <MenuItem Header="_Find..." x:Name="mnuFind" InputGestureText="Ctrl+F" Command="Find" Click="btnMenuItem_Click" Visibility="Collapsed"/>
+                    <MenuItem Header="Find _Next" x:Name="mnuFindNext" InputGestureText="F3" Click="btnMenuItem_Click" Visibility="Collapsed"/>
+                    <MenuItem Header="R_eplace..." x:Name="mnuReplace" InputGestureText="Ctrl+H" Command="Replace" Click="btnMenuItem_Click" Visibility="Collapsed"/>
+                </MenuItem>
+                <MenuItem Header="_View" IsEnabled="False" Visibility="Collapsed">
+                    <MenuItem Header="_Toolbars" x:Name="mnuToolbars" Click="btnMenuItem_Click" IsCheckable="True"/>
+                </MenuItem>
+                <MenuItem Header="_Tools" IsEnabled="False" Visibility="Collapsed">
+                    <MenuItem Header="_Customize..." x:Name="mnuCustomize"/>
+                    <MenuItem Header="_Preferences..." x:Name="mnuPreferences" InputGestureText="F4"  Click="btnMenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_View Help..." x:Name="mnuViewHelp" InputGestureText="F1" Command="Help" Click="btnMenuItem_Click"/>
+                    <Separator/>
+                    <MenuItem Header="_Feedback..." x:Name="mnuFeedback" Click="btnMenuItem_Click"/>
+                    <MenuItem Header="_Register Product..." x:Name="mnuRegisterProduct" Click="btnMenuItem_Click"/>
+                    <MenuItem Header="_Technical Support..." x:Name="mnuTechnicalSupport" Click="btnMenuItem_Click"/>
+                    <Separator/>
+                    <MenuItem Header="_About..." x:Name="mnuAbout" InputGestureText="Ctrl+F1"  Click="btnMenuItem_Click"/>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <ToolBarTray x:Name="toolbar" Grid.Row="1" IsEnabled="False" Visibility="Collapsed">
+            <ToolBar Height="30" Band="1" BandIndex="1">
+                <Button Command="New" ToolTip="New...">
+                    <Image Source="Images/menu/new.png"/>
+                </Button>
+                <Button Command="Open" ToolTip="Open...">
+                    <Image Source="Images/menu/open.png"/>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid Grid.Row="2">
+            <TabControl x:Name="tabControl" >
+                
+            </TabControl>
+        </Grid>
+        <Grid Grid.Row="3">
+            <StatusBar>
+                <StatusBarItem Width="150">
+                    <TextBlock x:Name="stxtStatus">Welcome</TextBlock>
+                </StatusBarItem>
+                <StatusBarItem>
+                    <ProgressBar x:Name="sPrgBar"
+                        Width="100" Minimum="0" Maximum="100"/>
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Grid>
+</Window>

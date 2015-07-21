@@ -1,0 +1,77 @@
+package com.example.catapp;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class Profile extends Activity implements OnClickListener{
+Button cancel;
+Button update;
+EditText name,age,email,contact,pass,cpass,gender; 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.profile);
+		 cancel = (Button)findViewById(R.id.cancel);
+		 update= (Button)findViewById(R.id.update);
+		 name = (EditText)findViewById(R.id.name);
+		 age = (EditText)findViewById(R.id.age);
+		 email = (EditText)findViewById(R.id.email);
+		 contact = (EditText)findViewById(R.id.contact);
+		 pass = (EditText)findViewById(R.id.pass);
+		 cpass = (EditText)findViewById(R.id.cpass);
+		 gender = (EditText)findViewById(R.id.gender);
+		 update.setOnClickListener(this);
+		cancel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.fragment_main);
+				
+			}
+		});
+	}
+	@Override
+	public void onClick(View arg0) {
+		boolean didItWork = true;
+		try{
+			String n = name.getText().toString();
+			String a = age.getText().toString();
+			String e= email.getText().toString();
+			String c = contact.getText().toString();
+			String p = pass.getText().toString();
+			String cp = cpass.getText().toString();
+			String g = gender.getText().toString();
+			
+			sql entry = new sql(Profile.this);
+			entry.open();
+			entry.createEntry(n,a,g,e,c,p,cp);
+			entry.close();
+			}catch(Exception e)
+			{
+				didItWork = false;
+			}finally
+			{
+				if(didItWork)
+				{
+					Dialog d = new Dialog(this);
+					
+					d.setTitle("Yeah!");
+					TextView tv = new TextView(this);
+					tv.setText("Success");
+					d.setContentView(tv);
+					d.show();
+					
+				}
+				
+			}
+		
+	}
+
+}

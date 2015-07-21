@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<items>
+  <item id="SubjectsComparisionChartStyle" value="Line" />
+  <item id="StudentMarksChartStyle" value="Column" />
+  <item id="AppTheme" value="Light"/>
+  <item id="ShowStartUpPage" value="True"/>
+</items>

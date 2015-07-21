@@ -1,0 +1,48 @@
+﻿<Window x:Class="TestFormula_StAnalysis.Windows.WinAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About" Height="300" Width="400"
+        WindowStyle="SingleBorderWindow" Icon="../analysis-icon.png" 
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0"/>
+        <Grid>
+            <StackPanel>
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border>
+                        <Image Source="/TestFormula StAnalysis;component/Images/TF_Logo_2.png" Width="30" />
+                    </Border>
+                    <TextBlock Grid.Column="1" FontSize="25" FontWeight="Light">TestFormula's Career Choice App</TextBlock>
+                </Grid>
+                <TextBlock>v 1.0</TextBlock>
+                <Border BorderThickness="1" BorderBrush="LightGray" Margin="10"/>
+                <TextBlock>
+                    A Product of TestFormula Education Private Limited
+                </TextBlock>
+                <Border BorderThickness="1" BorderBrush="LightGray" Margin="10"/>
+                <Image Source="D:\logo_2.png" Height="40"/>
+                <TextBlock Height="10"/>
+                <TextBlock>Visit us @
+                    <TextBlock><Hyperlink NavigateUri="http://www.TestFormula.com/" >http://www.TestFormula.com/</Hyperlink></TextBlock><LineBreak/>
+                    <TextBlock>or</TextBlock><LineBreak/>
+                    <TextBlock>Give a missed call at +91-9211-3060-40</TextBlock>
+                </TextBlock>
+                <Button HorizontalAlignment="Center" Margin="0,10,0,0" Click="btnOk_Click" IsDefault="True">
+                    O_K</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

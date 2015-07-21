@@ -1,0 +1,40 @@
+package com.example.catapp;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+
+public class q9 extends Activity implements OnCheckedChangeListener{
+Button q9;
+RadioGroup r9;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.q9);
+		q9 = (Button)findViewById(R.id.q9);
+		r9 = (RadioGroup)findViewById(R.id.r9);
+		r9.setOnCheckedChangeListener(this);
+q9.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.q10);
+				
+			}
+		});
+	}
+	@Override
+	public void onCheckedChanged(RadioGroup arg0, int arg1) {
+		switch(arg1)
+		{
+		case R.id.ninea : break;
+		case R.id.nineb : break;
+		}
+		
+	}
+
+}

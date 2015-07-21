@@ -1,0 +1,31 @@
+package com.example.catapp;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class Profile extends Activity{
+Button cancel;
+Button update;
+EditText name,age,email,contact,pass,cpass,gender; 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.profile);
+		 cancel = (Button)findViewById(R.id.cancel);
+		cancel.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.fragment_main);
+				
+			}
+		});
+	}
+}

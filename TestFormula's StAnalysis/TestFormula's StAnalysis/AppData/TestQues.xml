@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Questions>
+  <Question Index="1">
+    <Question>When you go somewhere for the day, would you rather</Question>
+    <Option Value="j">plan what you will do and when, or</Option>
+    <Option Value="p">just go</Option>
+  </Question>
+  <Question Index="2">
+    <Question>Do you more often let</Question>
+    <Option Value="f">your heart rule your head, or</Option>
+    <Option Value="t">your head rule your heart?</Option>
+  </Question>
+  <Question Index="3">
+    <Question>If you were a teacher, would you rather teach</Question>
+    <Option Value="s">fact courses, or</Option>
+    <Option Value="n">courses involving theory?</Option>
+  </Question>
+  <Question Index="4">
+    <Question>Are you usually</Question>
+    <Option Value="e">a good mixer, or</Option>
+    <Option Value="i">rather quiet and reserved?</Option>
+  </Question>
+  <Question Index="5">
+    <Question>Do you usually get along better with</Question>
+    <Option Value="n">imaginative people, or</Option>
+    <Option Value="s">realistic people?</Option>
+  </Question>
+</Questions>

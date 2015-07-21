@@ -1,0 +1,188 @@
+package com.example.catapp;
+
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.Fragment;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.os.Build;
+
+public class MainActivity extends ActionBarActivity {
+//LinearLayout a,b,c,d,e,f;
+	
+	Button profile,marks,compare,test,about,like;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_main);
+        Thread timer = new Thread(){
+        	public void run()
+        	{
+        		try
+        		{
+        			sleep(30000);
+        		}catch(InterruptedException e)
+        		{
+        			e.printStackTrace();
+        		}finally
+        		{
+        			Intent open = new Intent("com.example.catapp.PROFILE");
+        			startActivity(open);
+        			
+        			/*Intent open1 = new Intent("com.example.catapp.TEST");
+        			startActivity(open1);
+        			
+        			Intent open2 = new Intent("com.example.catapp.Q1");
+        			startActivity(open2);
+        			
+        			Intent open3 = new Intent("com.example.catapp.Q2");
+        			startActivity(open3);
+        			
+        			Intent open4 = new Intent("com.example.catapp.Q3");
+        			startActivity(open4);
+        			
+        			Intent open5 = new Intent("com.example.catapp.Q4");
+        			startActivity(open5);
+        			
+        			Intent open6 = new Intent("com.example.catapp.Q5");
+        			startActivity(open6);
+        			
+        			Intent open7 = new Intent("com.example.catapp.Q6");
+        			startActivity(open7);
+        			
+        			Intent open8 = new Intent("com.example.catapp.Q7");
+        			startActivity(open8);
+        			
+        			Intent open9 = new Intent("com.example.catapp.Q8");
+        			startActivity(open9);
+        			
+        			Intent open10 = new Intent("com.example.catapp.Q9");
+        			startActivity(open10);
+        			
+        			Intent open11 = new Intent("com.example.catapp.Q10");
+        			startActivity(open11);
+        			
+        			Intent open12 = new Intent("com.example.catapp.Q11");
+        			startActivity(open12);
+        			
+        			Intent open13 = new Intent("com.example.catapp.Q12");
+        			startActivity(open13);
+        			
+        			Intent open14 = new Intent("com.example.catapp.Q13");
+        			startActivity(open14);
+        			*/
+        			Intent open15 = new Intent("com.example.catapp.Q14");
+        			startActivity(open15);
+        		}
+        	}
+        };
+        timer.start();
+        
+        profile = (Button)findViewById(R.id.profile);
+        marks = (Button)findViewById(R.id.marks);
+        compare = (Button)findViewById(R.id.compare);
+        test = (Button)findViewById(R.id.test);
+        about = (Button)findViewById(R.id.about);
+        like = (Button)findViewById(R.id.like);
+
+        profile.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.profile);
+				
+			}
+		});
+        
+        marks.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.marks);
+				
+			}
+		});
+        
+        compare.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.compare);
+				
+			}
+		});
+        
+        test.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.test);
+				
+			}
+		});
+        
+        about.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.aboutus);
+				
+			}
+		});
+        
+        like.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				setContentView(R.layout.likeus);
+				
+			}
+		});
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            return rootView;
+        }
+    }
+
+}
